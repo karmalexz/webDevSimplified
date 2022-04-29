@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="main.js"></script>
+    <style>
+        div{color:black;}
+        div>div{
+            margin-left:  .5rem;
+            padding-left: .25rem;
+            border-left: 1px solid #777;
+        }
+    </style>
+</head>
+<body>
+    <div id="grand-parent" class="test">
+        Grand Parent
+        <div id="parent-one">
+            Parent 1
+            <div class="test">Child1</div>
+            <div class="test">Child2</div>
+        </div>
+        <div>Parent 2</div>
+    </div>
+</body>
+</html>
