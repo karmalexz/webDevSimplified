@@ -12,7 +12,7 @@ Tabs.prototype.change=function(){
         this.btns[i].addEventListener('click',function(){
             for(let j=0;j<_this.btns.length;j++){
                 _this.btns[j].className = ''
-                _this.btns[j].className= ''
+                _this.tabs[j].className= ''
             }
         this.className='active'
         let index=this.getAttribute('index')
@@ -23,3 +23,4 @@ Tabs.prototype.change=function(){
 let t=new Tabs("#box")
 t.change()
 console.log(t)
+
