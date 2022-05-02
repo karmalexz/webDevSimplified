@@ -9,7 +9,9 @@ const fs =require ('fs')
 
 fs.readFile('11.txt','utf8',(err,dataStr)=>{
     if(err){
-        return console.log("failed!" +  err.message)
+        console.log("failed!" +  err.message)
     }
-    console.log('successful!'+dataStr)
+    else{
+        console.log('successful!'+dataStr)
+    }
 })
