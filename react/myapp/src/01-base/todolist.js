@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./css/02-index.css"
 
 export default class App extends Component {
   a = 100;
@@ -37,6 +38,9 @@ export default class App extends Component {
             </li>
           ))}
         </ul>
+        {/* {this.state.list.length === 0 ? <div>Nothing to do</div> : null} */}
+        {/* {this.state.list.length === 0 && <div>Nothing to do</div>} */}
+                <div className={this.state.list.length===0?'':'hidden'}>Nothing to do</div>
       </div>
     );
   }
@@ -44,18 +48,20 @@ export default class App extends Component {
     //   this.state.list.push(this.myref.current.value)
     let newList = [...this.state.list];
     newList.push({
-        id:Math.random()*100000,
-        mytext:this.myref.current.value});
+      id: Math.random() * 100000,
+      mytext: this.myref.current.value,
+    });
     this.setState({
       list: newList,
     });
+    this.myref.current.value = "";
   };
   handleDelClick = (index) => {
     console.log("delete", index);
-    let newList=[...this.state.list];
-    newList.splice(index,1)
+    let newList = [...this.state.list];
+    newList.splice(index, 1);
     this.setState({
-        list:newList,
-    })
+      list: newList,
+    });
   };
 }
