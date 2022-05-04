@@ -3,7 +3,11 @@ import React, { Component } from "react";
 export default class App extends Component {
   a = 100;
   state = {
-    list: ["Have breakfast", "See GP", "Buy fruits"],
+    list: [
+      { id: 1, mytext: "Have breakfast" },
+      { id: 2, mytext: "See GP" },
+      { id: 3, mytext: "Buy fruits" },
+    ],
   };
   myref = React.createRef();
   render() {
@@ -14,23 +18,25 @@ export default class App extends Component {
         <button
           onClick={() => {
             // console.log("click1", this.refs.mytest.value);
-           this.handleClick()
+            this.handleClick();
           }}
         >
           ADD
         </button>
         <ul>
           {this.state.list.map((item) => (
-            <li>{item}</li>
+            <li key={item.id}>{item.mytext}</li>
           ))}
         </ul>
       </div>
     );
   }
-  handleClick =()=>{
-      this.state.list.push(this.myref.current.value)
+  handleClick = () => {
+    //   this.state.list.push(this.myref.current.value)
+    let newList = [...this.state.list];
+    newList.push(this.myref.current.value);
     this.setState({
-        list:this.state.list
-    })  
-  }
+      list: newList,
+    });
+  };
 }
