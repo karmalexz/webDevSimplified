@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./css/02-index.css"
+import "./css/02-index.css";
 
 export default class App extends Component {
   a = 100;
@@ -27,7 +27,12 @@ export default class App extends Component {
         <ul>
           {this.state.list.map((item, index) => (
             <li key={item.id}>
-              {item.mytext}
+                {item.mytext}
+              {/* <span
+                dangerouslySetInnerHTML={{
+                  __html: item.mytext,
+                }}
+              ></span> */}
               <button
                 onClick={() => {
                   this.handleDelClick(index);
@@ -40,7 +45,9 @@ export default class App extends Component {
         </ul>
         {/* {this.state.list.length === 0 ? <div>Nothing to do</div> : null} */}
         {/* {this.state.list.length === 0 && <div>Nothing to do</div>} */}
-                <div className={this.state.list.length===0?'':'hidden'}>Nothing to do</div>
+        <div className={this.state.list.length === 0 ? "" : "hidden"}>
+          Nothing to do
+        </div>
       </div>
     );
   }
