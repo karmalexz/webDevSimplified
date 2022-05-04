@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 
 export default class App extends Component {
-  state = {
-    show: true,
-  };
+//   state = {
+//     show: true,
+//   };
+constructor(){
+    super()
+    this.state={
+        show:true
+    }
+}
   render() {
     return (
       <div>
@@ -14,7 +20,7 @@ export default class App extends Component {
                 show:!this.state.show
             })
           }}
-        >{this.state.show?'like':'cancel'}</button>
+        >{this.state.show?'❤️':'🖤'}</button>
       </div>
     );
   }
