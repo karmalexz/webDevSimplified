@@ -24,8 +24,17 @@ export default class App extends Component {
           ADD
         </button>
         <ul>
-          {this.state.list.map((item) => (
-            <li key={item.id}>{item.mytext}</li>
+          {this.state.list.map((item, index) => (
+            <li key={item.id}>
+              {item.mytext}
+              <button
+                onClick={() => {
+                  this.handleDelClick(index);
+                }}
+              >
+                delete
+              </button>
+            </li>
           ))}
         </ul>
       </div>
@@ -34,9 +43,19 @@ export default class App extends Component {
   handleClick = () => {
     //   this.state.list.push(this.myref.current.value)
     let newList = [...this.state.list];
-    newList.push(this.myref.current.value);
+    newList.push({
+        id:Math.random()*100000,
+        mytext:this.myref.current.value});
     this.setState({
       list: newList,
     });
+  };
+  handleDelClick = (index) => {
+    console.log("delete", index);
+    let newList=[...this.state.list];
+    newList.splice(index,1)
+    this.setState({
+        list:newList,
+    })
   };
 }
