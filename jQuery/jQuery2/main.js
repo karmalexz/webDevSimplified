@@ -1,6 +1,0 @@
-// console.log($('div').html())
-// $('div').html("<h2>changed later</h2>")
-console.log($('div').text())
-$('div').text("i am later changed")
-console.log($('input').val())
-$('input').val('later changed')
