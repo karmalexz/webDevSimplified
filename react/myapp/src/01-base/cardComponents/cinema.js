@@ -57,3 +57,39 @@ export default class Cinema extends Component {
     })
   };
 }
+
+import "./styles.css";
+
+// task
+// fetch API, JSON
+// https://api.adviceslip.com/advice
+// Fetch a advice on initial rendering
+// Fetch a advice when pressing the button
+// Display the advice
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+
+    </div>
+  );
+  axios({
+    url: "https://m.maizuo.com/gateway?cityId=110100&ticketFlag=1&k=7406159",
+    method: "get",
+    headers: {
+      "X-Client-Info":
+        '{"a":"3000","ch":"1002","v":"5.0.4","e":"16395416565231270166529","bc":"110100"}',
+
+      "X-Host": "mall.film-ticket.cinema.list",
+    },
+  }).then((res) => {
+    console.log(res.data);
+    this.setState({
+      cinemaList: res.data.data.cinemas,
+      backup: res.data.data.cinemas,
+    });
+  });
+}
+}
