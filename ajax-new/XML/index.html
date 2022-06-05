@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <h1>Example pf using XML</h1>
+        <div>
+            <b>Type of animal:</b> <span id="type"></span> <br>
+            <b>Sound of animal:</b> <span id="sound"></span> <br>
+        </div>
+        <script>
+            let animalXMLData= `
+                <animal>
+                    <type>Dog</type>
+                    <sound>Woof</sound>    
+                </animal>
+            `
+            console.log(animalXMLData)
+            let XMLParser=new DOMParser();
+            let xmlDocumentTree=XMLParser.parseFromString(animalXMLData,'text/xml');
+            console.log(xmlDocumentTree)
+            document.getElementById('type').innerHTML=xmlDocumentTree.getElementsByTagName('animal')[0].childNodes[1].textContent
+            document.getElementById('sound').innerHTML=xmlDocumentTree.getElementsByTagName('animal')[0].childNodes[3].textContent
+        </script>
+    </body>
+</html>
